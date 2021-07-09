@@ -1,6 +1,8 @@
 package hello.thymeleafbasic.basic;
 
 import lombok.Data;
+import lombok.Getter;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -115,6 +117,15 @@ public class BasicController {
         addUser(model);
         return "basic/block";
     }
+
+    @GetMapping("/javascript")
+    public String javascript(Model model){
+        model.addAttribute("user", new User("userA", 10));
+        addUser(model);
+
+        return "basic/javascript";
+    }
+
 
     private void addUser(Model model){
         List<User> list = new ArrayList<>();
